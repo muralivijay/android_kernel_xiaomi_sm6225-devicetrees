@@ -1,3 +1,6 @@
+DTC_INCLUDE += $(srctree)/../sm6225-modules/qcom/opensource/audio-kernel/include
+KBUILD_DTC_INCLUDE += $(srctree)/../sm6225-modules/qcom/opensource/audio-kernel/include
+
 ifeq ($(CONFIG_ARCH_KALAMA), y)
 dtbo-y += kalama-audio.dtbo \
                  kalama-audio-cdp.dtbo \
