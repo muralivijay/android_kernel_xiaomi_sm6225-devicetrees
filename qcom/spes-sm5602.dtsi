@@ -1,4 +1,5 @@
 #include "khaje-idp.dtsi"
+#include <dt-bindings/iio/qti_power_supply_iio.h>
 
 &qupv3_se2_i2c {
 	synaptics_tcm@20 {
