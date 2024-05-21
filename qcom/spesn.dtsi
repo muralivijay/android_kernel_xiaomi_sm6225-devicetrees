@@ -447,7 +447,7 @@ nopmi_chg:
                                &maxim_ds28e16 PSY_IIO_DEV_CHIP_ID
                                &maxim_ds28e16 PSY_IIO_DS_CHIP_OK
                                &maxim_ds28e16 PSY_IIO_DS_AUTHEN_RESULT>;
-	        io-channel-names = "resistance_id shutdown_delay soc_decimal soc_decimal_rate fastcharge_mode fg_batt_id charge_type charge_enabled charge_ic_type charge_pd_active sc_bus_current charging_enabled sc_chip_id ln_bus_current ln_charging_enabled ln_chip_id cc_chip_id ds_chip_id ds_chip_ok ds_authen_result";
+	        io-channel-names = "resistance_id shutdown_delay soc_decimal soc_decimal_rate fastcharge_mode fg_batt_id charge_type charge_enabled charge_ic_type charge_pd_active sc_bus_current charging_enabled sc_chip_id cc_chip_id ds_chip_id ds_chip_ok ds_authen_result";
 	};
 
 onewire_gpio:
