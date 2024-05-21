@@ -69,6 +69,7 @@
 muic:
 	max77729@66 {
 		status = "okay";
+                #io-channel-cells = <1>;
 		compatible = "maxim,max77729";
 		reg = <0x66>;
 		interrupt-parent = <&tlmm>;
@@ -84,6 +85,7 @@ muic:
                 io-channel-names = "pd_active";
 		
 		max77729-usbc {
+                        #io-channel-cells = <1>;
 			compatible = "maxim,max77729-usbc";
                         io-channels = <&max77729_charger PSY_IIO_USB_REAL_TYPE>;
                         io-channel-names = "usb_real_type";
@@ -98,6 +100,7 @@ muic:
 
 max77729_charger:
 		max77729-charger {
+                        #io-channel-cells = <1>;
 			charger,fac_vsys = <4400>;
 			charger,enable_sysovlo_irq;
 			charger,fsw = <0>;
@@ -113,6 +116,7 @@ max77729_charger:
 
 max77729_fuelgauge:
 		max77729-fuelgauge {
+                        #io-channel-cells = <1>;
 			fuelgauge,fuel_alert_soc = <1>;
 			fuelgauge,capacity_max = <2000>;
 			fuelgauge,capacity_max_margin = <300>;
