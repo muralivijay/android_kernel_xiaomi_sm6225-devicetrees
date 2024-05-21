@@ -1,7 +1,7 @@
 DTC_INCLUDE += $(srctree)/../sm6225-modules/qcom/opensource/camera-kernel
 KBUILD_DTC_INCLUDE += $(srctree)/../sm6225-modules/qcom/opensource/camera-kernel
 
-include $(srctree)/$(src)/config/holi.mk
+include $(srctree)/$(src)/config/bengal.mk
 
 always-y	:= $(dtbo-y) $(dtb-y)
 subdir-y	:= $(dts-dirs)
