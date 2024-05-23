@@ -5,6 +5,9 @@ dtbo-$(CONFIG_ARCH_KHAJE) += khajeg-camera-idp.dtbo \
 				khaje-camera-sensor-idp.dtbo \
 				khaje-camera-sensor-qrd.dtbo \
 				khaje-camera-sensor-idp-nopmi.dtbo \
+                                spes-khaje-camera-sensor-idp-nopmi.dts \
+                                spes-sm5602-khaje-camera-sensor-idp-nopmi.dtbo \
+                                spesn-khaje-camera-sensor-idp-nopmi.dtbo \
 				khaje-camera-sensor-qrd-nopmi.dtbo \
 				khaje-camera-sensor-qrd-hvdcp3p5.dtbo \
 				khaje-camera-sensor-qrd-nowcd9375.dtbo \
