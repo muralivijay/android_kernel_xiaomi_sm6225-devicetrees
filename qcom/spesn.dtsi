@@ -1,16 +1,6 @@
 #include "khaje-idp.dtsi"
 #include <dt-bindings/iio/qti_power_supply_iio.h>
 
-&qupv3_se2_i2c {
-	synaptics_tcm@20 {
-		status = "disabled";
-	};
-
-	novatek@62 {
-		status = "disabled";
-	};
-};
-
 ///device specific-prop
 &qupv3_se4_2uart {
       status = "disabled";
