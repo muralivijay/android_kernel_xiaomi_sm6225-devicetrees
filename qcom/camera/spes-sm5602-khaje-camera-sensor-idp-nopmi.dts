@@ -2,7 +2,6 @@
 /plugin/;
 
 #include "khaje-camera-sensor-idp.dtsi"
-#include "khaje-camera-sensor-nopmi.dtsi"
 / {
 	model = "Qualcomm Technologies, Inc. SPES KHAJE IDP nopmi";
 	compatible = "qcom,khaje-idp", "qcom,khaje", "qcom,idp";
