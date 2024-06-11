@@ -94,14 +94,14 @@ max77729_charger:
 			charger,fac_vsys = <4400>;
 			charger,enable_sysovlo_irq;
 			charger,fsw = <0>;
-                        io-channels = <&max77729_fuelgauge PSY_IIO_FASTCHARGE_MODE
-                                       &max77729_fuelgauge PSY_IIO_RESISTANCE_ID
-                                       &nopmi_chg PSY_IIO_MTBF_CUR
-                                       &max77729_charger PSY_IIO_USB_REAL_TYPE
-                                       &nopmi_chg PSY_IIO_FFC_DISABLE
-                                       &maxim_ds28e16 PSY_IIO_DS_CHIP_OK
-                                       &max77729_charger PSY_IIO_BATTERY_CHARGING_ENABLED>;
-                        io-channel-names = "fastcharge_mode resistance_id mtbf_cur usb_real_type ffc_disable ds_chip_ok battery_charge_enabled";
+                        io-channels = <&max77729_fuelgauge PSY_IIO_FASTCHARGE_MODE>,
+                                      <&max77729_fuelgauge PSY_IIO_RESISTANCE_ID>,
+                                      <&nopmi_chg PSY_IIO_MTBF_CUR>,
+                                      <&max77729_charger PSY_IIO_USB_REAL_TYPE>,
+                                      <&nopmi_chg PSY_IIO_FFC_DISABLE>,
+                                      <&maxim_ds28e16 PSY_IIO_DS_CHIP_OK>,
+                                      <&max77729_charger PSY_IIO_BATTERY_CHARGING_ENABLED>;
+                        io-channel-names = "fastcharge_mode","resistance_id","mtbf_cur","usb_real_type","ffc_disable","ds_chip_ok","battery_charge_enabled";
 		};
 
 max77729_fuelgauge:
@@ -126,13 +126,13 @@ max77729_fuelgauge:
 			fuelgauge,lost_soc_guarantee_soc = <30>;
 			fuelgauge,lost_soc_min_vol = <3200>;
 			battery,shutdown-delay-enable;
-                        io-channels = <&maxim_ds28e16 PSY_IIO_DS_AUTHEN_RESULT
-                                       &maxim_ds28e16 PSY_IIO_DS_ROMID
-                                       &maxim_ds28e16 PSY_IIO_DS_STATUS
-                                       &maxim_ds28e16 PSY_IIO_DS_PAGE0_DATA
-                                       &maxim_ds28e16 PSY_IIO_DS_CHIP_OK
-                                       &max77729_fuelgauge PSY_IIO_SHUTDOWN_DELAY>;
-                        io-channel-names = "ds_authen_result ds_romid ds_status ds_page0_data ds_chip_ok shutdown_delay";
+                        io-channels = <&maxim_ds28e16 PSY_IIO_DS_AUTHEN_RESULT>,
+                                      <&maxim_ds28e16 PSY_IIO_DS_ROMID>,
+                                      <&maxim_ds28e16 PSY_IIO_DS_STATUS>,
+                                      <&maxim_ds28e16 PSY_IIO_DS_PAGE0_DATA>,
+                                      <&maxim_ds28e16 PSY_IIO_DS_CHIP_OK>,
+                                      <&max77729_fuelgauge PSY_IIO_SHUTDOWN_DELAY>;
+                        io-channel-names = "ds_authen_result","ds_romid","ds_status","ds_page0_data","ds_chip_ok","shutdown_delay";
 			fuelgauge,soc_decimal_rate = <0 38
 				10 35 
 				20 33 
@@ -255,14 +255,14 @@ nopmi_chg:
 		temp_t0_to_t1_fcc = <950>;
 		temp_tn1_to_t0_fcc = <490>;
 		nopmi,thermal-mitigation = <5950000 5400000 5000000 4500000 4000000 3700000 3500000 3000000 2800000 2500000 2000000 1500000 1000000 800000 500000  300000>;
-                io-channels = <&max77729_fuelgauge PSY_IIO_CHARGE_IC_TYPE
-                               &sc8551_standalone PSY_IIO_SC_BUS_CURRENT
-                               &max77729_charger PSY_IIO_PD_ACTIVE
-                               &sc8551_standalone PSY_IIO_DEV_CHIP_ID
-                               &maxim_ds28e16 PSY_IIO_DEV_CHIP_ID
-                               &maxim_ds28e16 PSY_IIO_DS_CHIP_OK
-                               &maxim_ds28e16 PSY_IIO_DS_AUTHEN_RESULT>;
-	        io-channel-names = "charge_ic_type sc_bus_current charge_pd_active sc_chip_id ds_chip_id ds_chip_ok ds_authen_result";
+                io-channels = <&max77729_fuelgauge PSY_IIO_CHARGE_IC_TYPE>,
+                              <&sc8551_standalone PSY_IIO_SC_BUS_CURRENT>,
+                              <&max77729_charger PSY_IIO_PD_ACTIVE>,
+                              <&sc8551_standalone PSY_IIO_DEV_CHIP_ID>,
+                              <&maxim_ds28e16 PSY_IIO_DEV_CHIP_ID>,
+                              <&maxim_ds28e16 PSY_IIO_DS_CHIP_OK>,
+                              <&maxim_ds28e16 PSY_IIO_DS_AUTHEN_RESULT>;
+	        io-channel-names = "charge_ic_type","sc_bus_current","charge_pd_active","sc_chip_id","ds_chip_id","ds_chip_ok","ds_authen_result";
 	};
 
 onewire_gpio:
