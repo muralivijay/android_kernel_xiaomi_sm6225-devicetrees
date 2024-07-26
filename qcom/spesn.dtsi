@@ -308,23 +308,6 @@ sm5602:
        };
 };
 
-&tlmm {
-/* sc8551-charger */
-	sc8551_int_default: sc8551_int_default {
-			mux {
-				pins = "gpio84";
-				function = "gpio";
-			};
-			
-			config {
-				pins = "gpio84";
-				drive-strength = <2>;
-				bias-pull-up;
-				input-enable;
-			};
-		};
-};
-
 &qupv3_se1_i2c {
 			status = "ok";
 			#address-cells = <1>;
@@ -335,10 +318,7 @@ sc8551_standalone:
                 #io-channel-cells = <1>;
 		compatible = "sc,sc8551-standalone";
 		reg = <0x66>;
-		interrupt-parent = <&tlmm>;
-		interrupts = <84 0>;
-		pinctrl-names = "default";
-		pinctrl-0 = <&sc8551_int_default>;
+		irq-gpios = <&tlmm 84 0>;
 		sc,sc8551,bat-therm-disable = <0>;
 		sc,sc8551,bus-therm-disable = <0>;
 		sc,sc8551,bat-ovp-threshold = <4525>;
