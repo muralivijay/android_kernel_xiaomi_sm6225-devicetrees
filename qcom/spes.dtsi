@@ -71,15 +71,13 @@ muic:
 		max77729,fw_product_id = <3>;
 		max77729,bc1p2_retry_count = <2>;
 		max77729,snkcap_data = [04 2c 91 01 36 c8 d0 02 00 c8 90 41 8b 2f 21 dc c0];
-                io-channels = <&max77729_charger PSY_IIO_PD_ACTIVE>;
-                io-channel-names = "pd_active";
+		io-channels = <&maxim_ds28e16 PSY_IIO_DS_AUTHEN_RESULT>,<&maxim_ds28e16 PSY_IIO_DS_ROMID>,<&maxim_ds28e16 PSY_IIO_DS_STATUS>,<&maxim_ds28e16 PSY_IIO_DS_PAGE0_DATA>,<&maxim_ds28e16 PSY_IIO_DS_CHIP_OK>,<&max77729_charger_iio PSY_IIO_USB_REAL_TYPE>,<&max77729_charger_iio PSY_IIO_BATTERY_CHARGING_ENABLED>,<&max77729_charger_iio PSY_IIO_PD_ACTIVE>,<&nopmi_chg PSY_IIO_MTBF_CUR>,<&nopmi_chg PSY_IIO_FFC_DISABLE>;
+		io-channel-names = "ds_authen_result","ds_romid","ds_status","ds_page0_data","ds_chip_ok","usb_real_type","battery_charging_enabled","charge_pd_active","mtbf_cur","ffc_disable";
 		
 		max77729-usbc {
-                        #io-channel-cells = <1>;
 			compatible = "maxim,max77729-usbc";
-                        io-channels = <&max77729_charger PSY_IIO_USB_REAL_TYPE>;
-                        io-channel-names = "usb_real_type";
 		};
+
 
 		battery {
 			battery,chg_float_voltage = <4450>;
@@ -88,25 +86,13 @@ muic:
 			battery,topoff_time = <30>;
 		};
 
-max77729_charger:
 		max77729-charger {
-                        #io-channel-cells = <1>;
 			charger,fac_vsys = <4400>;
 			charger,enable_sysovlo_irq;
 			charger,fsw = <0>;
-                        io-channels = <&max77729_fuelgauge PSY_IIO_FASTCHARGE_MODE>,
-                                      <&max77729_fuelgauge PSY_IIO_RESISTANCE_ID>,
-                                      <&nopmi_chg PSY_IIO_MTBF_CUR>,
-                                      <&max77729_charger PSY_IIO_USB_REAL_TYPE>,
-                                      <&nopmi_chg PSY_IIO_FFC_DISABLE>,
-                                      <&maxim_ds28e16 PSY_IIO_DS_CHIP_OK>,
-                                      <&max77729_charger PSY_IIO_BATTERY_CHARGING_ENABLED>;
-                        io-channel-names = "fastcharge_mode","resistance_id","mtbf_cur","usb_real_type","ffc_disable","ds_chip_ok","battery_charge_enabled";
 		};
 
-max77729_fuelgauge:
 		max77729-fuelgauge {
-                        #io-channel-cells = <1>;
 			fuelgauge,fuel_alert_soc = <1>;
 			fuelgauge,capacity_max = <2000>;
 			fuelgauge,capacity_max_margin = <300>;
@@ -126,13 +112,6 @@ max77729_fuelgauge:
 			fuelgauge,lost_soc_guarantee_soc = <30>;
 			fuelgauge,lost_soc_min_vol = <3200>;
 			battery,shutdown-delay-enable;
-                        io-channels = <&maxim_ds28e16 PSY_IIO_DS_AUTHEN_RESULT>,
-                                      <&maxim_ds28e16 PSY_IIO_DS_ROMID>,
-                                      <&maxim_ds28e16 PSY_IIO_DS_STATUS>,
-                                      <&maxim_ds28e16 PSY_IIO_DS_PAGE0_DATA>,
-                                      <&maxim_ds28e16 PSY_IIO_DS_CHIP_OK>,
-                                      <&max77729_fuelgauge PSY_IIO_SHUTDOWN_DELAY>;
-                        io-channel-names = "ds_authen_result","ds_romid","ds_status","ds_page0_data","ds_chip_ok","shutdown_delay";
 			fuelgauge,soc_decimal_rate = <0 38
 				10 35 
 				20 33 
@@ -161,7 +140,6 @@ max77729_fuelgauge:
 			};
 		};
 	};
-
 };
 
 &usb0 {
@@ -219,8 +197,23 @@ sc8551_standalone:
 };
 
 &soc {
+max77729_charger_iio:
+        max77729-charger-iio {
+                status = "okay";
+                #io-channel-cells = <1>;
+                compatible = "maxim,max77729-charger-iio";
+        };
+
+max77729_fuelgauge_iio:
+        max77729-fuelgauge-iio {
+		status = "okay";
+                #io-channel-cells = <1>;
+                compatible = "maxim,max77729-fuelgauge-iio";
+	};
+
 nopmi_chg:
         qcom,nopmi-chg {
+                #io-channel-cells = <1>;
 		compatible = "qcom,nopmi-chg";
 		status = "okay";
 		qcom,fv-max-uv = <4400000>;
@@ -255,14 +248,8 @@ nopmi_chg:
 		temp_t0_to_t1_fcc = <950>;
 		temp_tn1_to_t0_fcc = <490>;
 		nopmi,thermal-mitigation = <5950000 5400000 5000000 4500000 4000000 3700000 3500000 3000000 2800000 2500000 2000000 1500000 1000000 800000 500000  300000>;
-                io-channels = <&max77729_fuelgauge PSY_IIO_CHARGE_IC_TYPE>,
-                              <&sc8551_standalone PSY_IIO_SC_BUS_CURRENT>,
-                              <&max77729_charger PSY_IIO_PD_ACTIVE>,
-                              <&sc8551_standalone PSY_IIO_DEV_CHIP_ID>,
-                              <&maxim_ds28e16 PSY_IIO_DEV_CHIP_ID>,
-                              <&maxim_ds28e16 PSY_IIO_DS_CHIP_OK>,
-                              <&maxim_ds28e16 PSY_IIO_DS_AUTHEN_RESULT>;
-	        io-channel-names = "charge_ic_type","sc_bus_current","charge_pd_active","sc_chip_id","ds_chip_id","ds_chip_ok","ds_authen_result";
+                io-channels = <&max77729_charger_iio PSY_IIO_CHARGE_IC_TYPE>,<&max77729_charger_iio PSY_IIO_PD_ACTIVE>,<&max77729_fuelgauge_iio PSY_IIO_FASTCHARGE_MODE>,<&sc8551_standalone PSY_IIO_SC_BUS_CURRENT>,<&sc8551_standalone PSY_IIO_DEV_CHIP_ID>,<&maxim_ds28e16 PSY_IIO_DEV_CHIP_ID>,<&maxim_ds28e16 PSY_IIO_DS_CHIP_OK>,<&maxim_ds28e16 PSY_IIO_DS_AUTHEN_RESULT>;
+                io-channel-names = "charge_ic_type","charge_pd_active","fastcharge_mode","sc_bus_current","sc_chip_id","ds_chip_id","ds_chip_ok","ds_authen_result";
 	};
 
 onewire_gpio:
