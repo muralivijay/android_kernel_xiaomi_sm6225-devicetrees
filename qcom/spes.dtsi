@@ -254,6 +254,13 @@ maxim_ds28e16:
 		maxim,version = <1>;
 		status = "ok";
 	};
+
+	qcom_cp_manager {
+		compatible = "qcom,cp_manager";
+		status = "okay";
+		io-channels = <&sc8551_standalone PSY_IIO_PRESENT>,<&sc8551_standalone PSY_IIO_CHARGING_ENABLED>,<&sc8551_standalone PSY_IIO_STATUS>,<&sc8551_standalone PSY_IIO_SC_BATTERY_PRESENT>,<&sc8551_standalone PSY_IIO_SC_VBUS_PRESENT>,<&sc8551_standalone PSY_IIO_SC_BATTERY_VOLTAGE>,<&sc8551_standalone PSY_IIO_SC_BATTERY_CURRENT>,<&sc8551_standalone PSY_IIO_SC_BATTERY_TEMPERATURE>,<&sc8551_standalone PSY_IIO_SC_BUS_VOLTAGE>,<&sc8551_standalone PSY_IIO_SC_BUS_CURRENT>,<&sc8551_standalone PSY_IIO_SC_BUS_TEMPERATURE>,<&sc8551_standalone PSY_IIO_SC_DIE_TEMPERATURE>,<&sc8551_standalone PSY_IIO_SC_ALARM_STATUS>,<&sc8551_standalone PSY_IIO_SC_FAULT_STATUS>,<&sc8551_standalone PSY_IIO_SC_VBUS_ERROR_STATUS>,<&sc8551_standalone PSY_IIO_SC_CHIP_VENDOR>,<&sc8551_standalone PSY_IIO_DEV_CHIP_ID>,<&nopmi_chg PSY_IIO_INPUT_SUSPEND>,<&nopmi_chg PSY_IIO_PD_ACTIVE>,<&nopmi_chg PSY_IIO_CHARGING_ENABLED>,<&max77729_charger_iio PSY_IIO_CHARGE_ENABLED>,<&nopmi_chg PSY_IIO_APDO_VOLT>,<&nopmi_chg PSY_IIO_APDO_CURR>;
+		io-channel-names = "present","charging_enabled","status","sc_battery_present","sc_vbus_present","sc_battery_voltage","sc_battery_current","sc_battery_temperature","sc_bus_voltage","sc_bus_current","sc_bus_temperature","sc_die_temperature","sc_alarm_status","sc_fault_status","sc_vbus_error_status","sc_chip_vendor","sc_chip_id","input_suspend","pd_active","battery_charging_enabled","charge_enabled","apdo_volt","apdo_curr";
+	};
 };
 
 &tlmm {
