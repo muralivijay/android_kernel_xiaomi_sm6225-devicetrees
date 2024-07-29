@@ -228,8 +228,8 @@ nopmi_chg:
 		temp_t0_to_t1_fcc = <950>;
 		temp_tn1_to_t0_fcc = <490>;
 		nopmi,thermal-mitigation = <5950000 5400000 5000000 4500000 4000000 3700000 3500000 3000000 2800000 2500000 2000000 1500000 1000000 800000 500000  300000>;
-                io-channels = <&max77729_charger_iio PSY_IIO_CHARGE_IC_TYPE>,<&max77729_charger_iio PSY_IIO_PD_ACTIVE>,<&max77729_fuelgauge_iio PSY_IIO_FASTCHARGE_MODE>,<&sc8551_standalone PSY_IIO_SC_BUS_CURRENT>,<&sc8551_standalone PSY_IIO_DEV_CHIP_ID>,<&sc8551_standalone PSY_IIO_CHARGING_ENABLED>,<&maxim_ds28e16 PSY_IIO_DEV_CHIP_ID>,<&maxim_ds28e16 PSY_IIO_DS_CHIP_OK>,<&maxim_ds28e16 PSY_IIO_DS_AUTHEN_RESULT>;
-                io-channel-names = "charge_ic_type","charge_pd_active","fastcharge_mode","sc_bus_current","sc_chip_id","charging_enabled","ds_chip_id","ds_chip_ok","ds_authen_result";
+                io-channels = <&max77729_charger_iio PSY_IIO_CHARGE_IC_TYPE>,<&max77729_charger_iio PSY_IIO_PD_ACTIVE>,<&max77729_fuelgauge_iio PSY_IIO_FASTCHARGE_MODE>,<&max77729_fuelgauge_iio PSY_IIO_SOC_DECIMAL>,<&max77729_fuelgauge_iio PSY_IIO_SOC_DECIMAL_RATE>,<&max77729_fuelgauge_iio PSY_IIO_SHUTDOWN_DELAY>,<&max77729_fuelgauge_iio PSY_IIO_RESISTANCE_ID>,<&sc8551_standalone PSY_IIO_SC_BUS_CURRENT>,<&sc8551_standalone PSY_IIO_DEV_CHIP_ID>,<&sc8551_standalone PSY_IIO_CHARGING_ENABLED>,<&maxim_ds28e16 PSY_IIO_DEV_CHIP_ID>,<&maxim_ds28e16 PSY_IIO_DS_CHIP_OK>,<&maxim_ds28e16 PSY_IIO_DS_AUTHEN_RESULT>;
+                io-channel-names = "charge_ic_type","charge_pd_active","fastcharge_mode","soc_decimal","soc_decimal_rate","shutdown_delay","resistance_id","sc_bus_current","sc_chip_id","charging_enabled","ds_chip_id","ds_chip_ok","ds_authen_result";
 	};
 
 onewire_gpio:
