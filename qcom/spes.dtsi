@@ -71,8 +71,8 @@ muic:
 		max77729,fw_product_id = <3>;
 		max77729,bc1p2_retry_count = <2>;
 		max77729,snkcap_data = [04 2c 91 01 36 c8 d0 02 00 c8 90 41 8b 2f 21 dc c0];
-		io-channels = <&maxim_ds28e16 PSY_IIO_DS_AUTHEN_RESULT>,<&maxim_ds28e16 PSY_IIO_DS_ROMID>,<&maxim_ds28e16 PSY_IIO_DS_STATUS>,<&maxim_ds28e16 PSY_IIO_DS_PAGE0_DATA>,<&maxim_ds28e16 PSY_IIO_DS_CHIP_OK>,<&max77729_charger_iio PSY_IIO_USB_REAL_TYPE>,<&max77729_charger_iio PSY_IIO_BATTERY_CHARGING_ENABLED>,<&max77729_charger_iio PSY_IIO_PD_ACTIVE>,<&nopmi_chg PSY_IIO_MTBF_CUR>,<&nopmi_chg PSY_IIO_FFC_DISABLE>;
-		io-channel-names = "ds_authen_result","ds_romid","ds_status","ds_page0_data","ds_chip_ok","usb_real_type","battery_charging_enabled","charge_pd_active","mtbf_cur","ffc_disable";
+		io-channels = <&maxim_ds28e16 PSY_IIO_DS_AUTHEN_RESULT>,<&maxim_ds28e16 PSY_IIO_DS_ROMID>,<&maxim_ds28e16 PSY_IIO_DS_STATUS>,<&maxim_ds28e16 PSY_IIO_DS_PAGE0_DATA>,<&maxim_ds28e16 PSY_IIO_DS_CHIP_OK>,<&max77729_charger_iio PSY_IIO_USB_REAL_TYPE>,<&max77729_charger_iio PSY_IIO_BATTERY_CHARGING_ENABLED>,<&max77729_charger_iio PSY_IIO_PD_ACTIVE>,<&nopmi_chg PSY_IIO_MTBF_CUR>,<&nopmi_chg PSY_IIO_FFC_DISABLE>,<&max77729_fuelgauge_iio PSY_IIO_FASTCHARGE_MODE>,<&max77729_fuelgauge_iio PSY_IIO_RESISTANCE_ID>;
+		io-channel-names = "ds_authen_result","ds_romid","ds_status","ds_page0_data","ds_chip_ok","usb_real_type","battery_charging_enabled","charge_pd_active","mtbf_cur","ffc_disable","fastcharge_mode","resistance_id";
 		
 		max77729-usbc {
 			compatible = "maxim,max77729-usbc";
