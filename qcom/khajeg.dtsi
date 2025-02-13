@@ -12,9 +12,9 @@ reserved_memory: reserved-memory {
 	/delete-node/ wlan_msa_region@51900000;
 	/delete-node/ cdsp_regions@51a00000;
 	/delete-node/ pil_adsp_region@53800000;
-	/delete-node/ ipa_fw_region@55B00000;
-	/delete-node/ ipa_gsi_region@55B10000;
-	/delete-node/ gpu_region@55B15000;
+	/delete-node/ ipa_fw_region@56600000;
+	/delete-node/ ipa_gsi_region@56610000;
+	/delete-node/ gpu_region@56615000;
 	/delete-node/ video_region@55617000;
 
 	pil_modem_mem: modem_region@4ab00000 {
