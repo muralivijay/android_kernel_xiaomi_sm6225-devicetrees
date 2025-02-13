@@ -477,7 +477,7 @@
 
 		pil_adsp_mem: pil_adsp_region@53800000 {
 			no-map;
-			reg = <0x0 0x53800000 0x0 0x2e00000>;
+			reg = <0x0 0x53800000 0x0 0x1e00000>;
 		};
 
 		pil_ipa_fw_mem: ipa_fw_region@56600000 {
