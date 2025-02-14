@@ -292,6 +292,7 @@ thermal_message:
 	thermal-message {
 		board-sensor = "VIRTUAL-SENSOR";
 	};
+
 };
 
 &usb_qmp_dp_phy {

@@ -49,6 +49,12 @@
 	msm_notifier: qcom,msm_notifier@0 {
 		compatible = "qcom,msm-notifier";
 	};
+
+thermal_screen:
+        thermal-screen {
+                panel = <&dsi_k7_38_0c_0a_video
+                        &dsi_k7_38_0c_0b_video>;
+        };
 };
 
 &mdss_mdp {
