@@ -260,6 +260,7 @@
                 interrupts = <83 0>;
                 fpc,gpio_rst = <&tlmm 104 0>;
                 fpc,gpio_irq = <&tlmm 83 0>;
+				fpc,gpio_vdd_for_plsensor = <&tlmm 100 0>;
                 vcc_spi-supply = <&pm6125_l9>;
                 vdd_io-supply = <&pm6125_l9>;
                 vdd_ana-supply = <&pm6125_l9>;
