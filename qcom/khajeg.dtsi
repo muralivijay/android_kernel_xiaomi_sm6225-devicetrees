@@ -15,7 +15,7 @@ reserved_memory: reserved-memory {
 	/delete-node/ ipa_fw_region@56600000;
 	/delete-node/ ipa_gsi_region@56610000;
 	/delete-node/ gpu_region@56615000;
-	/delete-node/ video_region@55617000;
+	/delete-node/ video_region@56617000;
 
 	pil_modem_mem: modem_region@4ab00000 {
 		no-map;
