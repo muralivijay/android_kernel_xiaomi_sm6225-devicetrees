@@ -497,7 +497,7 @@
 
 		video_mem: video_region@56617000 {
 			no-map;
-			reg = <0x0 0x55617000 0x0 0x700000>;
+			reg = <0x0 0x56617000 0x0 0x700000>;
 		};
 
 		user_contig_mem: user_contig_region {
