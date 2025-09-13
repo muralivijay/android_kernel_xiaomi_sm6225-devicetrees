@@ -41,11 +41,14 @@ dtbo-$(CONFIG_ARCH_WAIPIO) += display/trustedvm-waipio-sde-display-mtp-overlay.d
 		display/trustedvm-waipio-sde-display-qrd-overlay.dtbo
 endif
 
-dtbo-$(CONFIG_ARCH_KHAJE) += display/khaje-sde.dtbo \
+dtbo-$(CONFIG_ARCH_KHAJE) += display/khaje-sde.dtbo
+ifeq ($(CONFIG_TARGET_PROJECT_K7T),y)
+dtbo-y += display/spes-khaje-sde-display-idp-nopmi-overlay.dtbo \
+          display/spes-sm5602-khaje-sde-display-idp-nopmi-overlay.dtbo \
+          display/spesn-khaje-sde-display-idp-nopmi-overlay.dtbo
+else
+dtbo-$(CONFIG_ARCH_KHAJE) += \
 		display/khaje-sde-display-idp-overlay.dtbo \
-                display/spes-khaje-sde-display-idp-nopmi-overlay.dtbo \
-                display/spes-sm5602-khaje-sde-display-idp-nopmi-overlay.dtbo \
-                display/spesn-khaje-sde-display-idp-nopmi-overlay.dtbo \
 		display/khaje-sde-display-qrd-overlay.dtbo \
 		display/khaje-sde-display-qrd-hvdcp3p5-overlay.dtbo \
 		display/khaje-sde-display-idps-90hz-overlay.dtbo \
@@ -53,6 +56,7 @@ dtbo-$(CONFIG_ARCH_KHAJE) += display/khaje-sde.dtbo \
 		display/khaje-sde-display-idp-nopmi-overlay.dtbo \
 		display/khaje-sde-display-qrd-nopmi-overlay.dtbo \
 		display/khaje-sde-display-qrd-nowcd9375-overlay.dtbo
+endif
 
 dtbo-$(CONFIG_ARCH_MONACO) += display/monaco-sde.dtbo \
 		display/monaco-sde-display-idp-overlay.dtbo \

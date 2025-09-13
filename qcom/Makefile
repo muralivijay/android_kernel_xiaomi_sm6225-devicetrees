@@ -126,15 +126,18 @@ KHAJE_BOARDS += \
 		 khajeg-idp-nopmi-overlay.dtbo \
 		 khajeg-idp-usbc-overlay.dtbo \
 		 khajeg-idp-pm8010-overlay.dtbo \
-		 khajeg-idps-display-90hz-overlay.dtbo \
-                 spes-khaje-idp-nopmi-overlay.dtbo \
-                 spesn-khaje-idp-nopmi-overlay.dtbo \
-                 spes-sm5602-khaje-idp-nopmi-overlay.dtbo
+		 khajeg-idps-display-90hz-overlay.dtbo
 
+ifeq ($(CONFIG_TARGET_PROJECT_K7T),y)
+dtb-y += spes-khaje-idp-nopmi-overlay.dtbo $(KHAJE_BASE_DTB) \
+	spesn-khaje-idp-nopmi-overlay.dtbo $(KHAJE_BASE_DTB) \
+	spes-sm5602-khaje-idp-nopmi-overlay.dtbo $(KHAJE_BASE_DTB)
+else
 bengal-dtb-$(CONFIG_ARCH_KHAJE) += \
         $(call add-overlays, $(KHAJE_BOARDS) ,$(KHAJE_BASE_DTB))
 bengal-overlays-dtb-$(CONFIG_ARCH_KHAJE) += $(KHAJE_BOARDS) $(KHAJE_BASE_DTB)
 dtb-y += $(bengal-dtb-y)
+endif
 
 KONA_BASE_DTB += kona-iot.dtb kona-iot-v2.dtb kona-iot-v2.1.dtb kona-7230-iot-v2.1.dtb qrb5165-iot.dtb qrb5165n-iot.dtb qrb3165-iot.dtb qrb3165n-iot.dtb
 
