@@ -6,6 +6,17 @@
 		compatible = "qcom,cam-res-mgr";
 		status = "ok";
 	};
+	
+	cam_vaf_2p8:cam-vaf {
+			status = "okay";
+			enable-active-high;
+			gpio = <&tlmm 102 0>;
+			regulator-max-microvolt = <2800000>;
+			regulator-min-microvolt = <2800000>;
+			regulator-name = "cam_vaf_2p8";
+			compatible = "regulator-fixed";
+	};	
+	
 };
 
 &qupv3_se1_i2c {
@@ -31,20 +42,17 @@
 		compatible = "qcom,actuator";
 		cci-master = <0>;
 		regulator-names = "cam_vaf";
+		cam_vaf-supply = <&cam_vaf_2p8>;		
 		rgltr-cntrl-support;
 		rgltr-min-voltage = <2800000>;
 		rgltr-max-voltage = <2800000>;
 		rgltr-load-current = <100000>;
 		pinctrl-names = "cam_default", "cam_suspend";		
 		pinctrl-0 = <&cam_sensor_rear0_vaf_active>;
-		pinctrl-1 = <&cam_sensor_rear0_vaf_suspend>;
-		gpios = <&tlmm 102 0>;
-		gpio-req-tbl-num = <0>;
-		gpio-req-tbl-flags = <0>;
-		gpio-req-tbl-label = "CAM_VAF0";		
+		pinctrl-1 = <&cam_sensor_rear0_vaf_suspend>;	
 		status = "ok";
 	};
-
+	
 	actuator_rear_aux: qcom,actuator1 {
 		cell-index = <1>;
 		compatible = "qcom,actuator";
